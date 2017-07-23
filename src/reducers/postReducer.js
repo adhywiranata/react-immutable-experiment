@@ -1,4 +1,7 @@
-const initialState = {
+import { Map } from 'immutable';
+
+// using Map() from immutable on the initialState to make sure our state is immutable! 
+const initialState = Map({
   isFetching: false,
   postsData: [
     {
@@ -7,7 +10,7 @@ const initialState = {
       description: 'dolor is a new lorem ipsum',
     },
   ],
-};
+});
 
 export default (state = initialState, action) => {
   switch(action.type) {
