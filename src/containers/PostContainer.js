@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { getAllPosts } from '../reducers/postReducer';
+
 const PostContainer = ({ posts }) => (
   <div>
     <h1>POSTS</h1>
@@ -10,9 +12,12 @@ const PostContainer = ({ posts }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  posts: [],
-});
+const mapStateToProps = state => {
+  console.log(getAllPosts(state));
+  return {
+    posts: [],
+  }
+};
 
 export default connect(
   mapStateToProps,

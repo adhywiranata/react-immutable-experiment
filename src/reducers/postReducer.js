@@ -9,6 +9,11 @@ const initialState = Map({
       title: 'Lorem Ipsum Dolor',
       description: 'dolor is a new lorem ipsum',
     },
+    {
+      id: 2,
+      title: 'Lorem Ipsum Dolor New',
+      description: 'new dolor is a new lorem ipsum',
+    },
   ],
 });
 
@@ -17,4 +22,9 @@ export default (state = initialState, action) => {
     case 'FETCH_POST': return state;
     default: return state;
   }
+};
+
+export const getAllPosts = (state) => {
+  // we're getting the array from immutable mapped state
+  return state.posts.get('postsData');
 };
