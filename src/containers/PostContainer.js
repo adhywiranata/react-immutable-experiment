@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getAllPosts } from '../reducers/postReducer';
+import { getAllPosts, getPostFetchingStatus } from '../reducers/postReducer';
 
-const PostContainer = ({ posts }) => (
+const PostContainer = ({ isFetching, posts }) => (
   <div>
     <h1>POSTS</h1>
+    {isFetching ? <span>Loading...</span>: null}
     <ul>
       {posts.map(post => <li key={post.id}>{post.title}</li>)}
     </ul>
@@ -13,9 +14,9 @@ const PostContainer = ({ posts }) => (
 );
 
 const mapStateToProps = state => {
-  console.log(getAllPosts(state));
   return {
-    posts: [],
+    isFetching: getPostFetchingStatus(state),
+    posts: getAllPosts(state),
   }
 };
 

@@ -25,6 +25,11 @@ export default (state = initialState, action) => {
 };
 
 export const getAllPosts = (state) => {
-  // we're getting the array from immutable mapped state
+  // we're getting the posts array from immutable mapped state
   return state.posts.get('postsData');
+};
+
+export const getPostFetchingStatus = (state) => {
+  // we're getting the posts array from immutable mapped state
+  return state.posts.get('isFetching');
 };
