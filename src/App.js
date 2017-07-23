@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { Map } from 'immutable';
 
 import logo from './logo.svg';
 import './App.css';
+
+const immutableObj = Map({ a: 2, b: 'wow', c: 'awesome' });
+
+console.log(immutableObj);
 
 class App extends Component {
   render() {
