@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { Map } from 'immutable';
 
 import store from './configureStore';
+
+import PostContainer from './containers/PostContainer';
 
 import logo from './logo.svg';
 import './App.css';
@@ -11,15 +14,15 @@ console.log(store.getState());
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Provider store={store}>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Welcome to React</h2>
+          </div>
+          <PostContainer />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </Provider>
     );
   }
 }
