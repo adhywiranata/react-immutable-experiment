@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Map } from 'immutable';
 
+import store from './configureStore';
+
 import logo from './logo.svg';
 import './App.css';
+
+console.log(store.getState());
 
 class App extends Component {
   render() {
