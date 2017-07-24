@@ -9,8 +9,6 @@ import PostContainer from './containers/PostContainer';
 import logo from './logo.svg';
 import './App.css';
 
-console.log(store.getState());
-
 class App extends Component {
   render() {
     return (

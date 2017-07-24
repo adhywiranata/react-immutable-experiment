@@ -23,7 +23,6 @@ const fetchPosts = (state) => {
     title: 'Lorem Ipsum Dolor New Again',
     description: 'new dolor is a new lorem ipsum',
   };
-
   return state.set('isFetching', false);
 } 
 
@@ -37,7 +36,7 @@ export default (state = initialState, action) => {
 export const getAllPosts = (state) => {
   // we're getting the posts List from immutable mapped state
   // to get the array, we can use toJS()
-  return state.posts.get('postsData');
+  return state.posts.get('postsData').toArray().map(mapObj => mapObj.toObject());
 };
 
 export const getPostFetchingStatus = (state) => {
