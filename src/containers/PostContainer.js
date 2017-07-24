@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { getAllPosts, getPostFetchingStatus } from '../reducers/postReducer';
 
 class PostContainer extends Component {
+  componentDidMount() {
+
+  }
+  
   render() {
     const { isFetching, posts } = this.props;
     return (
