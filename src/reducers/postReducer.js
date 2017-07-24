@@ -3,7 +3,11 @@ import { fromJS } from 'immutable';
 // using Map() from immutable on the initialState to make sure our state is immutable! 
 const initialState = fromJS({
   isFetching: true,
-  postsData: [
+  postsData: [],
+});
+
+const fetchPosts = (state) => {
+  const fetchedPostsList = fromJS([
     {
       id: 1,
       title: 'Lorem Ipsum Dolor',
@@ -14,16 +18,19 @@ const initialState = fromJS({
       title: 'Lorem Ipsum Dolor New',
       description: 'new dolor is a new lorem ipsum',
     },
-  ],
-});
+    {
+      id: 3,
+      title: 'Lorem Ipsum Dolor New Again',
+      description: 'new dolor is a new lorem ipsum',
+    }
+  ]);
 
-const fetchPosts = (state) => {
-  const newPost = {
-    id: 3,
-    title: 'Lorem Ipsum Dolor New Again',
-    description: 'new dolor is a new lorem ipsum',
-  };
-  return state.set('isFetching', false);
+  // we're getting a new concatinated postData List
+  const newPostsData = state.get('postsData').concat(fetchedPostsList);
+  
+  return state
+  .set('postsData', newPostsData)
+  .set('isFetching', false);
 } 
 
 export default (state = initialState, action) => {

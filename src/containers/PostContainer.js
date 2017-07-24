@@ -5,7 +5,7 @@ import { getAllPosts, getPostFetchingStatus } from '../reducers/postReducer';
 
 class PostContainer extends Component {
   componentDidMount() {
-    setTimeout(this.props.fetchPosts, 2000);
+    setTimeout(this.props.fetchPosts, 500);
   }
 
   render() {
