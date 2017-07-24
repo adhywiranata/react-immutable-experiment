@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 
 // using Map() from immutable on the initialState to make sure our state is immutable! 
 const initialState = Map({
-  isFetching: false,
+  isFetching: true,
   postsData: [
     {
       id: 1,
@@ -17,9 +17,19 @@ const initialState = Map({
   ],
 });
 
+const fetchPosts = (state) => {
+  const newPost = {
+    id: 3,
+    title: 'Lorem Ipsum Dolor New Again',
+    description: 'new dolor is a new lorem ipsum',
+  };
+
+  return state.set('isFetching', false);
+} 
+
 export default (state = initialState, action) => {
   switch(action.type) {
-    case 'FETCH_POST': return state;
+    case 'FETCH_POSTS': return fetchPosts(state);
     default: return state;
   }
 };

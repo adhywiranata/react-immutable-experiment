@@ -5,9 +5,9 @@ import { getAllPosts, getPostFetchingStatus } from '../reducers/postReducer';
 
 class PostContainer extends Component {
   componentDidMount() {
-
+    setTimeout(this.props.fetchPosts, 2000);
   }
-  
+
   render() {
     const { isFetching, posts } = this.props;
     return (
@@ -29,7 +29,11 @@ const mapStateToProps = state => {
   }
 };
 
+const mapDispatchToProps = dispatch => ({
+  fetchPosts: () => dispatch({ type: 'FETCH_POSTS' }),
+});
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps,
 )(PostContainer);
