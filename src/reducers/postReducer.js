@@ -1,7 +1,7 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 // using Map() from immutable on the initialState to make sure our state is immutable! 
-const initialState = Map({
+const initialState = fromJS({
   isFetching: true,
   postsData: [
     {
@@ -35,11 +35,13 @@ export default (state = initialState, action) => {
 };
 
 export const getAllPosts = (state) => {
-  // we're getting the posts array from immutable mapped state
+  // we're getting the posts List from immutable mapped state
+  // to get the array, we can use toJS()
   return state.posts.get('postsData');
 };
 
 export const getPostFetchingStatus = (state) => {
-  // we're getting the posts array from immutable mapped state
+  // we're getting the posts Map from immutable mapped state
+  // to get the value a Map, we can use get()
   return state.posts.get('isFetching');
 };
