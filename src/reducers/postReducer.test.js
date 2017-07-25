@@ -28,4 +28,11 @@ describe('post reducer', () => {
     const isFetching = expectedInitialState.get('isFetching');
     expect(isFetching).to.be.true;
   });
+
+  it('have three postsData items after fetch post', () => {
+    const initialState = postReducer(undefined, { type: '@@REDUX/INIT'});
+    const expectedState = postReducer(initialState, { type: 'FETCH_POSTS'});
+    const postsData = expectedState.get('postsData');
+    expect(postsData).to.have.size(3);
+  });
 });
