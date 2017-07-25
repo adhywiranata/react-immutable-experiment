@@ -3,4 +3,4 @@
 
 - [x] Immutable States in Redux
 - [x] Testing Immutable States
-- [] Flow shape for Immutable States  
+- [ ] Flow shape for Immutable States  
